@@ -4,40 +4,81 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i,700,700i&display=swap" rel="stylesheet">
     <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
         .tf-container {
             width: 100%;
             max-width: 910px;
             margin: 0 auto;
-            background-color: #cccccc;
+            /* background-color: #cccccc; */
+            font-family: 'Source Sans Pro' ;
+        }
+        .tf-content{
+            display: grid;
+            grid-template-columns: 50% 50%;
+        }
+        .info{
+            padding: 10px;
+            background-color: #f8f8f8;
+            /* width: 250px;
+            position: absolute;
+            right: 180px; */
+        }
+
+        .info .modal-content{
+            background-color: #000000;
+            color: #ffffff;
+            padding: 15px 15px 5px 15px;
+        }
+        .info .title{
+            text-transform: uppercase;
+            font-size: 15px;
+        }
+        .info p{
+            font-size: 22px;
+            line-height: 22px;
+        }
+        .info p:nth-child(even){
+            margin-bottom: 15px;
+            /* border-bottom: 1px solid #cccccc; */
+            padding-bottom: 5px;
+        }
+
+        .info p:last-child {
+            border-bottom: none;
         }
     </style>
 </head>
 <body>
     <div class="tf-container">
-        <h1>NCR/NPR/CAA</h1>
+        <h1>The stance of states on CAA/NRC/NPR</h1>
         <div class="tf-content">
-            <div>
-                <p>State</p>
-                <p>Description</p>
-                <p>Ruling Party</p>
-                <p>NCR</p>
-                <p>NPR</p>
-                <p>CAA</p>
-            </div>
-            <div class="map india state" id="indiaStateMap">
+            <div class="map india state" id="indiaStateMap"></div>
+            <div class="info">
+                <div class="modal-content">
 
+                    <p>Click on the map to know more</p>
+                </div>
             </div>
         </div>
     </div>
-    <script src="https://thefederal.com/skin/interactives/election-map/js/jquery-3.3.1.min.js"></script> 
-    <script src="https://thefederal.com/embed/common-js/d3.v4.min.js"></script>
-    <script src="https://d3js.org/topojson.v2.min.js"></script>
+    <!-- <script src="https://thefederal.com/skin/interactives/election-map/js/jquery-3.3.1.min.js"></script>  -->
+    <!-- <script src="https://thefederal.com/embed/common-js/d3.v4.min.js"></script> -->
+    <!-- <script src="https://d3js.org/topojson.v2.min.js"></script> -->
+    <script src="js/jquery-3.3.1.min.js"></script> 
+    <script src="js/d3.v4.min.js"></script>
+    <script src="js/topojson.v2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js"></script>
+    <script src="data.js"></script>
     <script src="createMap.js"></script>
     <script type='text/javascript'>
         draw_india_map({
             'htmlcontainer': '#indiaStateMap',
-            'map': 'maps/india_state.json'
+            'map': 'maps/india_state.json',
         });
     </script>
 </body>
