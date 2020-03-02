@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .tf-container {
+            width: 100%;
+            max-width: 910px;
+            margin: 0 auto;
+            background-color: #cccccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="tf-container">
+        <h1>NCR/NPR/CAA</h1>
+        <div class="tf-content">
+            <div>
+                <p>State</p>
+                <p>Description</p>
+                <p>Ruling Party</p>
+                <p>NCR</p>
+                <p>NPR</p>
+                <p>CAA</p>
+            </div>
+            <div class="map india state" id="indiaStateMap">
+
+            </div>
+        </div>
+    </div>
+    <script src="https://thefederal.com/skin/interactives/election-map/js/jquery-3.3.1.min.js"></script> 
+    <script src="https://thefederal.com/embed/common-js/d3.v4.min.js"></script>
+    <script src="https://d3js.org/topojson.v2.min.js"></script>
+    <script src="createMap.js"></script>
+    <script type='text/javascript'>
+        draw_india_map({
+            'htmlcontainer': '#indiaStateMap',
+            'map': 'maps/india_state.json'
+        });
+    </script>
+</body>
+</html>
