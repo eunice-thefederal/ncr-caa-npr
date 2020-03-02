@@ -67,6 +67,7 @@ function draw_india_map(options) {
                 if(fd[0] !== undefined){
 
                     html = '<div class="modal-content">'
+                    html += '<button class="">X</button>'
                     html += '<p class="title">State</p>'
                     html += '<p class="stateName">'+fd[0]['State']+'</p>'
                     // html += '<p class="title">Description</p>'

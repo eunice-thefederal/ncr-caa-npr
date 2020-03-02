@@ -17,10 +17,7 @@
             /* background-color: #cccccc; */
             font-family: 'Source Sans Pro' ;
         }
-        .tf-content{
-            display: grid;
-            grid-template-columns: 50% 50%;
-        }
+       
         .info{
             padding: 10px;
             background-color: #f8f8f8;
@@ -44,12 +41,44 @@
         }
         .info p:nth-child(even){
             margin-bottom: 15px;
-            /* border-bottom: 1px solid #cccccc; */
+            border-bottom: 1px solid #cccccc;
             padding-bottom: 5px;
         }
 
         .info p:last-child {
             border-bottom: none;
+        }
+
+
+        @media screen  and (min-width: 750px) {
+
+            .tf-content{
+                display: grid;
+                grid-template-columns: 50% 50%;
+            }
+            
+        }
+
+        @media screen and (max-width: 700px) {
+
+            h1 {
+                text-align: center;
+                line-height: 30px;
+            }
+
+            .tf-container{
+                padding:  15px;
+            }
+
+            .info {
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 80%;
+                background-color: transparent;
+                top: 120px;
+            }
+            
         }
     </style>
 </head>
@@ -60,7 +89,6 @@
             <div class="map india state" id="indiaStateMap"></div>
             <div class="info">
                 <div class="modal-content">
-
                     <p>Click on the map to know more</p>
                 </div>
             </div>
