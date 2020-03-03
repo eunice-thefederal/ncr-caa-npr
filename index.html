@@ -74,7 +74,9 @@
             margin-bottom: 15px;
         }
 
-        .tf-container ul{margin: 10px 0; line-height: 25px;}
+        .tf-container ul{margin: 10px 0; line-height: 35px;background-color: #ecebeb;
+    padding: 5px 10px;
+    text-align: center;}
         .tf-container ul, .legend ul { list-style: none;}
         .legend ul { list-style: none;}
         .legend ul li{ display: inline-block;margin-right: 15px;}
@@ -119,7 +121,13 @@
             color: red;
         }
 
-       
+        .definitions{
+            font-size: 18px !important;
+    line-height: 25px !important;
+        }
+
+        .caa, .nrc, .npr { cursor: pointer;}
+        .caa:hover, .nrc:hover, .npr:hover { text-decoration: underline;}
 
 
         @media screen  and (min-width: 750px) {
@@ -180,11 +188,12 @@
 </head>
 <body>
     <div class="tf-container">
-        <h1>The stance of states on CAA/NRC/NPR</h1>
+        <h1>Where the states stand on CAA/NRC/NPR</h1>
+        <p class="description">There is no unanimity among states on CAA, NRC, NPR. Some states have passed resolutions against it while some are opposing it without any legislative action. Here is an interactive map of India showing where each state stands on CAA-NRC-NPR. <br><small>(To know more about CAA, NRC, and NPR, click on the tabs below)</small></p>
         <ul>
-            <li><b>CAA: </b>Citizenship Amendment Act</li>
-            <li><b>NRC: </b>National Register of Citizens</li>
-            <li><b>NPR: </b>National Population Register</li>
+            <li class="caa"><b>CAA: </b>Citizenship Amendment Act</li>
+            <li class="nrc"><b>NRC: </b>National Register of Citizens</li>
+            <li class="npr"><b>NPR: </b>National Population Register</li>
         </ul>
         <div class="tf-content">
             <div class="map india state" id="indiaStateMap"></div>
@@ -201,6 +210,12 @@
                 </div>
             </div>
         </div>
+        <ul>
+            <li><b>Neutral: </b>Against CAA/NRC but no resolution passed</li>
+            <li><b>Against: </b>Resolutions passed against CAA/NRC</li>
+            <li><b>For: </b>In favour of CAA/NRC</li>
+            <li><b>Against (Conditional): </b>These states have sought some changes to NPR forms. Stance not clear.</li>
+        </ul>
     </div>
     <!-- <script src="https://thefederal.com/skin/interactives/election-map/js/jquery-3.3.1.min.js"></script>  -->
     <!-- <script src="https://thefederal.com/embed/common-js/d3.v4.min.js"></script> -->
@@ -219,6 +234,22 @@
 
         $('body').on('click', '.closebtn', function() {
             $(".modal-content").css("display", "none")
+        });
+        
+        $('.caa').on('click', function() {
+            $(".modal-content").css("display", "block")
+            var html = "<button class='closebtn'>X</button><h2>CAA</h2><p class='definitions'>The Citizenship (Amendment) Act, 2019 (CAA), which was passed in Parliament on December 11, 2019, amended the Citizenship Act of 1955. It allows Indian citizenship to persecuted Hindu, Sikh, Buddhist, Jain, Parsi, and Christian minorities who fled from neighbouring Muslim-majority countries of Pakistan, Afghanistan, and Bangladesh before December 2014 due to ‘religious persecution or fear of religious persecution.’</p>"
+            $(".modal-content").html(html)
+        });
+        $('.nrc').on('click', function() {
+            $(".modal-content").css("display", "block")
+            var html = "<button class='closebtn'>X</button><h2>NRC</h2><p class='definitions'>The National Register of Citizens (NRC) is the official record of all the legal citizens of India. The state-specific exercise, whose creation is mandated by the 2003 amendment of the Citizenship Act 1955, consists of demographic information of all individuals who qualify as citizens of India to keep its ethnic uniqueness unaltered. The first such record was created after the 1951 Census of India while it hasn't been updated to date.</p>"
+            $(".modal-content").html(html)
+        });
+        $('.npr').on('click', function() {
+            $(".modal-content").css("display", "block")
+            var html = "<button class='closebtn'>X</button><h2>NPR</h2><p class='definitions'>The National Population Register (NPR) is a record of the 'usual residents' of the country. A person who has resided in a specific area for the past 6 months (or more) or intends to reside for the next six months or more, he/she is qualified as a usual resident. The NPR follows the provisions of the Citizenship Act, 1955 with an aim to create a comprehensive identity database of every usual resident in the country, including the demographic as well as biometric particulars.</p>"
+            $(".modal-content").html(html)
         });
     </script>
 </body>
