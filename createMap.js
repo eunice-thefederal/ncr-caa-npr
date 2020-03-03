@@ -55,6 +55,8 @@ function draw_india_map(options) {
             .attr('stroke-width', "0.5")
             .attr('stroke-opacity', "0.5")
             .on('click', function(d,i){
+
+                $(".modal-content").css("display", "block")
                 
                 console.log(d.properties.ST_VC)
                 var fd = _.filter(data, function(obj){
@@ -66,8 +68,8 @@ function draw_india_map(options) {
 
                 if(fd[0] !== undefined){
 
-                    html = '<div class="modal-content">'
-                    html += '<button class="">X</button>'
+                    // html = '<div class="modal-content">'
+                    html = '<button class="closebtn">X</button>'
                     html += '<p class="title">State</p>'
                     html += '<p class="stateName">'+fd[0]['State']+'</p>'
                     // html += '<p class="title">Description</p>'
@@ -80,17 +82,29 @@ function draw_india_map(options) {
                     html += '<p class="npropinion">'+fd[0]['NPR']+'</p>'
                     html += '<p class="title">CAA</p>'
                     html += '<p class="caaopinion">'+fd[0]['CAA']+'</p>'
-                    html += '<div>'
+                    // html += '<div>'
                     
                 }else{
-                    html = '<div class="modal-content">'
-                    html += '<p class="title">State</p>'
+                    // html = '<div class="modal-content">'
+                    html = '<p class="title">State</p>'
                     html += '<p class="stateName">'+d.properties.ST_NM+'</p>'
                     html += '<p>No Data Available</p>'
-                    html += '<div>'
+                    // html += '<div>'
                 }
 
-                d3.select(".info").html(html)
+                d3.select(".modal-content").html(html)
+            })
+            .on('mouseover', function(d,i){
+                tooltip.style("display", "block")
+                var boundary = document.getElementById("indiaStateMap").getBoundingClientRect()
+                // console.log(d.properties.ST_VC)
+               
+                tooltip.html(d.properties.ST_NM)
+                    .style("left", (d3.event.pageX - boundary.x + 10) + "px")
+                    .style("top", (d3.event.pageY - boundary.y + 10) + "px");
+            })
+            .on('mouseout', function(d,i){
+                tooltip.style("display", "none")
             })
 
     })

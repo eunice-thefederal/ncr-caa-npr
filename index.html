@@ -20,7 +20,7 @@
        
         .info{
             padding: 10px;
-            background-color: #f8f8f8;
+            /* background-color: #f8f8f8; */
             /* width: 250px;
             position: absolute;
             right: 180px; */
@@ -29,25 +29,84 @@
         .info .modal-content{
             background-color: #000000;
             color: #ffffff;
-            padding: 15px 15px 5px 15px;
+            padding: 15px 15px 15px 15px;
         }
         .info .title{
             text-transform: uppercase;
             font-size: 15px;
+            color: #868686;
         }
         .info p{
             font-size: 22px;
             line-height: 22px;
         }
-        .info p:nth-child(even){
+        .stateName, .rulingParty, .ncropinion, .npropinion{
             margin-bottom: 15px;
-            border-bottom: 1px solid #cccccc;
-            padding-bottom: 5px;
+            /* border-bottom: 0.5px solid #ffffff; */
+            border-bottom: 1px solid #403f3f;
+            padding-bottom: 15px;
         }
+
+
 
         .info p:last-child {
             border-bottom: none;
         }
+
+        .closebtn {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            border: none;
+            font-size: 20px;
+            line-height: 36px;
+            background-color: #ffffff;
+            position: absolute;
+            right: 20px;
+            display: none;
+        }
+
+        .legend {
+            margin-bottom: 15px;
+        }
+
+        .legend ul { list-style: none;}
+        .legend ul li{ display: inline-block;margin-right: 15px;}
+        .legend ul li span{ 
+            display: inline-block; 
+            width: 12px; 
+            height: 12px;
+            /* background-color: #cccccc; */
+        }
+
+        .NDA span {
+            background-color: #E67E22;
+        }
+        .UPA span {
+            background-color: #27AE60;
+        }
+        .Others span {
+            background-color: #95A5A6;
+        }
+        path {
+            transition: all .2s;
+        }
+
+        path:hover{
+            fill: #000000;
+        }
+        #indiaStateMap {
+            position: relative;
+        }
+        .tooltipblock {
+            position: absolute;
+            background-color: #000000;
+            color: #ffffff;
+            padding: 5px 10px;
+            display: none;
+        }
+
+       
 
 
         @media screen  and (min-width: 750px) {
@@ -56,6 +115,10 @@
                 display: grid;
                 grid-template-columns: 50% 50%;
             }
+
+            .info {
+            position: relative;
+        }
             
         }
 
@@ -70,13 +133,17 @@
                 padding:  15px;
             }
 
-            .info {
+            .info .modal-content{
                 position: absolute;
                 left: 50%;
                 transform: translateX(-50%);
                 width: 80%;
-                background-color: transparent;
+                /* background-color: transparent; */
                 top: 120px;
+            }
+
+            .closebtn{
+                display: block;
             }
             
         }
@@ -88,6 +155,13 @@
         <div class="tf-content">
             <div class="map india state" id="indiaStateMap"></div>
             <div class="info">
+                <div class="legend">
+                    <ul>
+                        <li class="NDA"><span></span> NDA Ruled</li>
+                        <li class="UPA"><span></span> UPA Ruled</li>
+                        <li class="Others"><span></span> Others</li>
+                    </ul>
+                </div>
                 <div class="modal-content">
                     <p>Click on the map to know more</p>
                 </div>
@@ -107,6 +181,10 @@
         draw_india_map({
             'htmlcontainer': '#indiaStateMap',
             'map': 'maps/india_state.json',
+        });
+
+        $('body').on('click', '.closebtn', function() {
+            $(".modal-content").css("display", "none")
         });
     </script>
 </body>
