@@ -68,28 +68,23 @@ function draw_india_map(options) {
 
                 if(fd[0] !== undefined){
 
-                    // html = '<div class="modal-content">'
                     html = '<button class="closebtn">X</button>'
                     html += '<p class="title">State</p>'
                     html += '<p class="stateName">'+fd[0]['State']+'</p>'
-                    // html += '<p class="title">Description</p>'
-                    // html += '<p class="desc">'+fd[0]['Desc']+'</p>'
                     html += '<p class="title">Ruling Party</p>'
                     html += '<p class="rulingParty">'+fd[0]['Ruling Party']+'</p>'
                     html += '<p class="title">NRC</p>'
-                    html += '<p class="ncropinion">'+fd[0]['NRC']+'</p>'
+                    html += '<p class="ncropinion '+fd[0]['NRC']+'">'+fd[0]['NRC']+'</p>'
                     html += '<p class="title">NPR</p>'
-                    html += '<p class="npropinion">'+fd[0]['NPR']+'</p>'
+                    html += '<p class="npropinion '+fd[0]['NPR']+'">'+fd[0]['NPR']+'</p>'
                     html += '<p class="title">CAA</p>'
-                    html += '<p class="caaopinion">'+fd[0]['CAA']+'</p>'
-                    // html += '<div>'
+                    html += '<p class="caaopinion '+fd[0]['CAA']+'">'+fd[0]['CAA']+'</p>'
                     
                 }else{
-                    // html = '<div class="modal-content">'
-                    html = '<p class="title">State</p>'
+                    html = '<button class="closebtn">X</button>'
+                    html += '<p class="title">State</p>'
                     html += '<p class="stateName">'+d.properties.ST_NM+'</p>'
                     html += '<p>No Data Available</p>'
-                    // html += '<div>'
                 }
 
                 d3.select(".modal-content").html(html)
