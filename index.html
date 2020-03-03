@@ -16,7 +16,10 @@
             margin: 0 auto;
             /* background-color: #cccccc; */
             font-family: 'Source Sans Pro' ;
+            box-sizing: border-box;
         }
+
+        .tf-content { position: relative;}
        
         .info{
             padding: 10px;
@@ -34,7 +37,8 @@
         .info .title{
             text-transform: uppercase;
             font-size: 15px;
-            color: #868686;
+            color: #FFFFFF;
+            font-weight: bold;
         }
         .info p{
             font-size: 22px;
@@ -70,6 +74,8 @@
             margin-bottom: 15px;
         }
 
+        .tf-container ul{margin: 10px 0; line-height: 25px;}
+        .tf-container ul, .legend ul { list-style: none;}
         .legend ul { list-style: none;}
         .legend ul li{ display: inline-block;margin-right: 15px;}
         .legend ul li span{ 
@@ -123,6 +129,21 @@
                 grid-template-columns: 50% 50%;
             }
 
+            .tf-container ul {
+                list-style: none;
+            }
+            .tf-container ul li{
+                display: inline-block;
+                padding: 0 20px 0 20px;
+                border-right: 1px solid #CCCCCC;
+            }
+            .tf-container ul li:first-child{
+                padding:  0 20px 0 0px;
+            }
+            .tf-container ul li:last-child{
+                border-right: none;
+            }
+
             .info {
             position: relative;
         }
@@ -138,6 +159,7 @@
 
             .tf-container{
                 padding:  15px;
+                text-align: center;
             }
 
             .info .modal-content{
@@ -146,7 +168,7 @@
                 transform: translateX(-50%);
                 width: 80%;
                 /* background-color: transparent; */
-                top: 120px;
+                top: 16px;
             }
 
             .closebtn{
@@ -159,6 +181,11 @@
 <body>
     <div class="tf-container">
         <h1>The stance of states on CAA/NRC/NPR</h1>
+        <ul>
+            <li><b>CAA: </b>Citizenship Amendment Act</li>
+            <li><b>NRC: </b>National Register of Citizens</li>
+            <li><b>NPR: </b>National Population Register</li>
+        </ul>
         <div class="tf-content">
             <div class="map india state" id="indiaStateMap"></div>
             <div class="info">
